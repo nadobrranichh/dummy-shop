@@ -5,8 +5,8 @@ export const queryClient = new QueryClient();
 
 export async function fetchCategories(): Promise<string[]> {
   // to delay the execution
-  // const delay = await new Promise((resolve) => setTimeout(resolve, 1000));
-  const res = await fetch("https://fakestoreapi.com/productsss/categories");
+  //const delay = await new Promise((resolve) => setTimeout(resolve, 1000));
+  const res = await fetch("https://fakestoreapi.com/products/categories");
   if (!res.ok) {
     let info = null;
     const contentType = res.headers.get("content-type");

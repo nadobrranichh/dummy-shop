@@ -3,3 +3,9 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --color-light: #9691ef;
+  --color-dark: #070525;
+  --color-accent: #413c88;
+}
