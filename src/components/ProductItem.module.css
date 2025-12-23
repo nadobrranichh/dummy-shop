@@ -1,0 +1,28 @@
+.product-item {
+  background-color: var(--color-accent);
+  border-radius: 0.35rem;
+  padding: 0.3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-item img {
+  width: 80%;
+  height: 10rem;
+  object-fit: scale-down;
+}
+
+.w-100 {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.w-100 p {
+  color: var(--color-light);
+}
+
+.price-text {
+  color: var(--color-light);
+  font-weight: 700;
+}

@@ -4,8 +4,39 @@
   padding: 0;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --color-light: #9691ef;
   --color-dark: #070525;
   --color-accent: #413c88;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.loading-text {
+  color: var(--color-light);
+  text-align: center;
+  animation: blink 1s infinite;
 }
