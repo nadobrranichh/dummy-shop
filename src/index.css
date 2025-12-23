@@ -21,6 +21,11 @@ body,
   --color-accent: #413c88;
 }
 
+main {
+  background-color: var(--color-dark);
+  flex: 1;
+}
+
 @keyframes blink {
   0% {
     opacity: 0.5;
@@ -39,4 +44,30 @@ body,
   color: var(--color-light);
   text-align: center;
   animation: blink 1s infinite;
+}
+
+.price-text {
+  color: var(--color-light);
+  font-weight: 700;
+}
+
+.text-regular {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1;
+  line-height: 1.4rem;
+}
+
+.text-small {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1;
+  line-height: 1.3rem;
+}
+
+.color-light {
+  color: var(--color-light);
+}
+.color-dark {
+  color: var(--color-dark);
 }

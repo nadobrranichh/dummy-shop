@@ -16,9 +16,10 @@ const getError = async function (
   return error;
 };
 
+// to delay the execution for testing loading states:
+// const delay = await new Promise((resolve) => setTimeout(resolve, 3000));
+
 export async function fetchCategories(): Promise<string[]> {
-  // to delay the execution
-  // const delay = await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch("https://fakestoreapi.com/products/categories");
   if (!res.ok) {
     const error = getError(
@@ -33,7 +34,6 @@ export async function fetchCategories(): Promise<string[]> {
 }
 
 export async function fetchProducts(category?: string): Promise<Product[]> {
-  // const delay = await new Promise((resolve) => setTimeout(resolve, 3000));
   let url = "https://fakestoreapi.com/products";
   if (category) url += `/categories/${category}`;
 
@@ -44,6 +44,20 @@ export async function fetchProducts(category?: string): Promise<Product[]> {
       `An error occured while trying to fetch products${
         category ? `/categories/${category}` : ""
       }`
+    );
+    throw error;
+  }
+
+  const data = await res.json();
+  return data;
+}
+
+export async function fetchProduct(id: number): Promise<Product> {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+  if (!res.ok) {
+    const error = getError(
+      res,
+      `An error occured while trying to fetch the product n.${id}`
     );
     throw error;
   }

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.star-img {
+  height: 1.3rem;
+}
+
+.rating-text {
+  color: var(--color-light);
+  display: inline-block;
+  font-weight: 500;
+}
