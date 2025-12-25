@@ -7,7 +7,6 @@ export default function RatingContainer({
 }: {
   ratingObj: { rate: number; count: number };
 }) {
-  console.log(ratingObj);
   return (
     <div className={classes.container}>
       <img className={classes["star-img"]} src={StarImg} alt="star" />

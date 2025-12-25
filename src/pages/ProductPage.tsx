@@ -28,9 +28,6 @@ export default function ProductPage() {
     if (!id) navigate("../");
   }, []);
 
-  useEffect(() => {
-    console.log(product);
-  }, [product]);
   return (
     <main>
       <Link to="/" className={classes.navigation}>
