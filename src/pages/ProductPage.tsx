@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Suspense, useEffect } from "react";
-import { Await, useNavigate, useSearchParams } from "react-router-dom";
+import { Await, Link, useNavigate, useSearchParams } from "react-router-dom";
 import { fetchProduct } from "../http/http";
 import classes from "./ProductPage.module.css";
 import ArrowLeftImg from "../assets/arrow-left-5-svgrepo-com.svg";
@@ -33,10 +33,10 @@ export default function ProductPage() {
   }, [product]);
   return (
     <main>
-      <div className={classes.navigation}>
+      <Link to="/" className={classes.navigation}>
         <img src={ArrowLeftImg} />
         <p className="text-regular color-light">Go back</p>
-      </div>
+      </Link>
       <Suspense>
         <Await resolve={product}>
           {(resolvedProduct) => (

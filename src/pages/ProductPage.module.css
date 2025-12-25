@@ -1,11 +1,9 @@
 .navigation {
   height: 3rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 0 0.5rem;
-  gap: 0.5rem;
-
-  /* background: white; */
+  padding-right: 0.5rem;
+  text-decoration: none;
 }
 
 .navigation img {
