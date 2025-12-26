@@ -1,9 +1,3 @@
-.home-title {
-  color: var(--color-light);
-  text-align: center;
-  padding: 1rem 0;
-}
-
 .paragraph {
   color: var(--color-light);
   font-weight: 500;

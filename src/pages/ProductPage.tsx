@@ -30,7 +30,7 @@ export default function ProductPage() {
 
   return (
     <main>
-      <Link to="/" className={classes.navigation}>
+      <Link to="/" className="navigation">
         <img src={ArrowLeftImg} />
         <p className="text-regular color-light">Go back</p>
       </Link>
@@ -42,7 +42,7 @@ export default function ProductPage() {
                 src={resolvedProduct?.image}
                 className={classes["product-image"]}
               />
-              <h2>{resolvedProduct?.title}</h2>
+              <h2 className="title">{resolvedProduct?.title}</h2>
               <RatingContainer
                 ratingObj={resolvedProduct?.rating || { rate: 0, count: 0 }}
               />
@@ -52,7 +52,7 @@ export default function ProductPage() {
               <button className={classes["add-to-cart-btn"]}>
                 Add to Cart
               </button>
-              <h2>Description:</h2>
+              <h2 className="title">Description:</h2>
               <p className="text-small color-light">
                 {resolvedProduct?.description}
               </p>

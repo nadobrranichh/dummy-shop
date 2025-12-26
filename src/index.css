@@ -65,9 +65,31 @@ main {
   line-height: 1.3rem;
 }
 
+.title {
+  color: var(--color-light);
+  text-align: center;
+  padding: 1rem 0;
+}
+
 .color-light {
   color: var(--color-light);
 }
 .color-dark {
   color: var(--color-dark);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.navigation {
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  text-decoration: none;
+}
+
+.navigation img {
+  height: 2rem;
 }
