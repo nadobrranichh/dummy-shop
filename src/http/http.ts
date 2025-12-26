@@ -33,17 +33,12 @@ export async function fetchCategories(): Promise<string[]> {
   return data;
 }
 
-export async function fetchProducts(category?: string): Promise<Product[]> {
-  let url = "https://fakestoreapi.com/products";
-  if (category) url += `/categories/${category}`;
-
-  const res = await fetch(url);
+export async function fetchProducts(): Promise<Product[]> {
+  const res = await fetch("https://fakestoreapi.com/products");
   if (!res.ok) {
     const error = getError(
       res,
-      `An error occured while trying to fetch products${
-        category ? `/categories/${category}` : ""
-      }`
+      `An error occured while trying to fetch products`
     );
     throw error;
   }
