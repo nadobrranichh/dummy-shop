@@ -22,26 +22,6 @@ h1 {
   width: 2.5rem;
 }
 
-.loading-text {
-  color: var(--color-light);
-  text-align: center;
-  animation: 1s blink infinite;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0.5;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
-
 ul {
   display: flex;
   list-style: none;

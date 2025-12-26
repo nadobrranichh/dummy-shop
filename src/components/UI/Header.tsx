@@ -5,7 +5,7 @@ import classes from "./Header.module.css";
 import HamburgerMenuImg from "../../assets/hamburger-svgrepo-com.svg";
 export default function Header() {
   const { categories } = useRouteLoaderData("root");
-  console.log(categories);
+
   return (
     <header>
       <div className={classes.container}>
@@ -14,9 +14,7 @@ export default function Header() {
       </div>
       <div className={classes["categories-container"]}>
         <Suspense
-          fallback={
-            <p className={classes["loading-text"]}>Loading categories...</p>
-          }
+          fallback={<p className="loading-text">Loading categories...</p>}
         >
           <Await resolve={categories} errorElement={<ErrorBlock />}>
             {(resolvedCategories) => (
