@@ -93,3 +93,7 @@ main {
 .navigation img {
   height: 2rem;
 }
+
+.self-center {
+  align-self: center;
+}
