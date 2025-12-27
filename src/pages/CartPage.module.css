@@ -1,0 +1,23 @@
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid var(--color-text);
+}
+
+.center {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}

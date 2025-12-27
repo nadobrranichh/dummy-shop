@@ -1,11 +1,108 @@
-* {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --color-light: #9691ef;
   --color-dark: #070525;
   --color-accent: #413c88;
+}
+
+body {
+  --color-bg: var(--color-light);
+  --color-text: var(--color-dark);
+
+  --color-inverted-bg: var(--color-dark);
+  --color-inverted-text: var(--color-light);
+}
+
+body.dark {
+  --color-bg: var(--color-dark);
+  --color-text: var(--color-light);
+
+  --color-inverted-bg: var(--color-light);
+  --color-inverted-text: var(--color-dark);
+}
+
+* {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  color: var(--color-text);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background-color: var(--color-bg);
+  flex: 1;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.loading-text {
+  text-align: center;
+  animation: blink 1s infinite;
+}
+
+.price-text {
+  font-weight: 700;
+}
+
+.text-regular {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1;
+  line-height: 1.4rem;
+}
+
+.text-small {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1;
+  line-height: 1.3rem;
+}
+
+.title {
+  color: var(--color-text);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.navigation {
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  text-decoration: none;
+}
+
+.navigation img {
+  height: 2rem;
+}
+
+.self-center {
+  align-self: center;
 }

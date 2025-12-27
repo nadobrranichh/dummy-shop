@@ -1,0 +1,22 @@
+.product-item {
+  background-color: var(--color-accent);
+  border-radius: 0.35rem;
+  padding: 0.3rem;
+  gap: 0.5rem;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.product-image {
+  width: 80%;
+  height: 10rem;
+  object-fit: scale-down;
+  align-self: center;
+}
+
+.w-100 {
+  width: 100%;
+}

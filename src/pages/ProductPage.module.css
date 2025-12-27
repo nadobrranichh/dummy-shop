@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 1rem;
+  gap: 0.8rem;
+}
+
+.product-image {
+  margin-top: 1rem;
+  width: 85%;
+  max-height: 22rem;
+  object-fit: scale-down;
+  align-self: center;
+}
+
+.add-to-cart-btn {
+  align-self: center;
+  width: 70%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--color-inverted-bg);
+  color: var(--color-inverted-text);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.add-to-cart-btn:hover {
+  cursor: pointer;
+}
