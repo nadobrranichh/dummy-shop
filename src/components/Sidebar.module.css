@@ -1,0 +1,33 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 1rem 0 0 1rem;
+  box-sizing: border-box;
+
+  transform: translateX(200%);
+  transition: transform ease 0.3s;
+}
+
+.open {
+  transform: translateX(100%);
+}
+
+.sidebar-list {
+  list-style: none;
+  padding-top: 1rem;
+}
+
+.sidebar-list li {
+  color: var(--color-light);
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.d-none {
+  display: none;
+}
