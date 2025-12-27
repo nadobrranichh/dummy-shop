@@ -8,6 +8,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector((state) => state.ui.isSidebarOpen);
+  const theme = useAppSelector((state) => state.ui.theme);
 
   const goToPage = function (path: string) {
     dispatch(uiActions.closeSidebar());
@@ -24,12 +25,15 @@ export default function Sidebar() {
           </li>
         ))}
       </ul>
-      <p className="text-regular">Theme:</p>
-      <input
-        className={classes["theme-switch"]}
-        type="checkbox"
-        onChange={() => dispatch(uiActions.toggleTheme())}
-      />
+      <p className="text-regular">Theme: {theme}</p>
+      <div className={classes["theme-switch-container"]}>
+        <p className="text-small">Switch themes:</p>
+        <input
+          className={classes["theme-switch"]}
+          type="checkbox"
+          onChange={() => dispatch(uiActions.toggleTheme())}
+        />
+      </div>
     </aside>
   );
 }

@@ -26,10 +26,6 @@
   font-size: 1.2rem;
 }
 
-.d-none {
-  display: none;
-}
-
 input.theme-switch {
   appearance: inherit;
   -webkit-appearance: none;
@@ -59,4 +55,11 @@ input.theme-switch::after {
 
 input.theme-switch:checked::after {
   left: 70%;
+}
+
+.theme-switch-container {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  gap: 0.5rem;
 }
