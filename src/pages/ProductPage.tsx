@@ -3,11 +3,12 @@ import { Suspense, useEffect, useState } from "react";
 import { Await, Link, useNavigate, useSearchParams } from "react-router-dom";
 import { fetchProduct } from "../http/http";
 import classes from "./ProductPage.module.css";
-import ArrowLeftImg from "../assets/arrow-left-5-svgrepo-com.svg";
 import RatingContainer from "../components/RatingContainer";
 import { priceFormatter } from "../utils/formatters";
 import { useAppDispatch, useAppSelector } from "../store/custom-hooks";
 import { cartActions } from "../store/cart-slice";
+import ArrowLeftLightImg from "../assets/arrow-left-light.svg";
+import ArrowLeftDarkImg from "../assets/arrow-left-dark.svg";
 
 const ADD_TO_CART_COOLDOWN_MS = 2000;
 
@@ -15,6 +16,7 @@ export default function ProductPage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const theme = useAppSelector((state) => state.ui.theme);
   const id = Number.parseInt(searchParams.get("id") || "");
 
   const {
@@ -50,8 +52,8 @@ export default function ProductPage() {
   return (
     <main>
       <Link to="/" className="navigation">
-        <img src={ArrowLeftImg} />
-        <p className="text-regular color-light">Go back</p>
+        <img src={theme === "light" ? ArrowLeftDarkImg : ArrowLeftLightImg} />
+        <p className="text-regular">Go back</p>
       </Link>
       <Suspense>
         <Await resolve={product}>
@@ -76,14 +78,12 @@ export default function ProductPage() {
                 {coolDown ? "Added!" : "Add to Cart"}
               </button>
               {itemQuantity > 0 && (
-                <p className="text-small color-light self-center">
+                <p className="text-small self-center">
                   Quantity in cart: {itemQuantity}
                 </p>
               )}
               <h2 className="title">Description:</h2>
-              <p className="text-small color-light">
-                {resolvedProduct?.description}
-              </p>
+              <p className="text-small">{resolvedProduct?.description}</p>
             </div>
           )}
         </Await>

@@ -1,7 +1,6 @@
 .cart-item {
   width: 85%;
-  border: 2px solid var(--color-light);
-  /* background-color: var(--color-accent); */
+  border: 2px solid var(--color-text);
   display: flex;
 }
 

@@ -10,7 +10,7 @@
   padding: 0.5rem;
   font-size: 1.2rem;
   background: transparent;
-  border: 2px solid var(--color-light);
+  border: 2px solid var(--color-text);
 }
 
 .center {

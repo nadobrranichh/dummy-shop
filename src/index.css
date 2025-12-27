@@ -1,7 +1,31 @@
+:root {
+  --color-light: #9691ef;
+  --color-dark: #070525;
+  --color-accent: #413c88;
+}
+
+body {
+  --color-bg: var(--color-light);
+  --color-text: var(--color-dark);
+
+  --color-inverted-bg: var(--color-dark);
+  --color-inverted-text: var(--color-light);
+}
+
+body.dark {
+  --color-bg: var(--color-dark);
+  --color-text: var(--color-light);
+
+  --color-inverted-bg: var(--color-light);
+  --color-inverted-text: var(--color-dark);
+}
+
 * {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+
+  color: var(--color-text);
 }
 
 html,
@@ -15,14 +39,8 @@ body,
   flex-direction: column;
 }
 
-:root {
-  --color-light: #9691ef;
-  --color-dark: #070525;
-  --color-accent: #413c88;
-}
-
 main {
-  background-color: var(--color-dark);
+  background-color: var(--color-bg);
   flex: 1;
 }
 
@@ -41,13 +59,11 @@ main {
 }
 
 .loading-text {
-  color: var(--color-light);
   text-align: center;
   animation: blink 1s infinite;
 }
 
 .price-text {
-  color: var(--color-light);
   font-weight: 700;
 }
 
@@ -66,16 +82,9 @@ main {
 }
 
 .title {
-  color: var(--color-light);
+  color: var(--color-text);
   text-align: center;
   padding: 1rem 0;
-}
-
-.color-light {
-  color: var(--color-light);
-}
-.color-dark {
-  color: var(--color-dark);
 }
 
 .text-center {

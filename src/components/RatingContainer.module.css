@@ -9,7 +9,6 @@
 }
 
 .rating-text {
-  color: var(--color-light);
   display: inline-block;
   font-weight: 500;
 }

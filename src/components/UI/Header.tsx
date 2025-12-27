@@ -2,10 +2,11 @@ import { Suspense } from "react";
 import { Await, useLocation, useRouteLoaderData } from "react-router-dom";
 import ErrorBlock from "./ErrorBlock";
 import classes from "./Header.module.css";
-import HamburgerMenuImg from "../../assets/hamburger-svgrepo-com.svg";
 import { useAppSelector, useAppDispatch } from "../../store/custom-hooks";
 import { selectedCategoriesActions } from "../../store/selected-categories-slice";
 import { uiActions } from "../../store/ui-slice";
+import HamburgerMenuDarkImg from "../../assets/hamburger-menu-dark.svg";
+import HamburgerMenuLightImg from "../../assets/hamburger-menu-light.svg";
 
 export default function Header() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function Header() {
   const selectedCategories = useAppSelector(
     (state) => state.selectedCategories
   );
+  const theme = useAppSelector((state) => state.ui.theme);
 
   const toggleSidebar = function () {
     dispatch(uiActions.toggleSidebar());
@@ -29,13 +31,11 @@ export default function Header() {
     <header>
       <div className={classes.container}>
         <h1>DummyShop</h1>
-        {/* <Link to="/cart"> */}
         <img
-          src={HamburgerMenuImg}
+          src={theme === "dark" ? HamburgerMenuDarkImg : HamburgerMenuLightImg}
           className={classes["hamburger-menu"]}
           onClick={toggleSidebar}
         />
-        {/* </Link> */}
       </div>
       {location.pathname === "/cart" || (
         <div className={classes["categories-container"]}>

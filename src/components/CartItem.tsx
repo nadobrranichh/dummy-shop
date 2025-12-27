@@ -30,17 +30,17 @@ export default function CartItem({
     <li {...props} className={classes["cart-item"]}>
       <img src={item.product.image} className={classes["item-image"]} />
       <div className={classes["item-info"]}>
-        <p className={`text-regular color-light ${classes["self-start"]}`}>
+        <p className={`text-regular ${classes["self-start"]}`}>
           {displayTitle}
         </p>
-        <p className={`text-small color-light `}>Quantity:</p>
+        <p className="text-small">Quantity:</p>
         <div className={classes["quantity-container"]}>
           <img
             src={MinusIcon}
             className={classes["quantity-icon"]}
             onClick={decreaseQuantity}
           />
-          <p className="text-regular color-light">{item.quantity}</p>
+          <p className="text-regular">{item.quantity}</p>
           <img
             src={PlusIcon}
             className={classes["quantity-icon"]}

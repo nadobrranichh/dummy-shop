@@ -4,6 +4,7 @@ const uiSlice = createSlice({
   name: "ui",
   initialState: {
     isSidebarOpen: false,
+    theme: "light",
   },
   reducers: {
     toggleSidebar(state) {
@@ -14,6 +15,12 @@ const uiSlice = createSlice({
     },
     closeSidebar(state) {
       state.isSidebarOpen = false;
+    },
+    toggleTheme(state) {
+      document.body.classList.toggle("dark");
+      if (state.theme === "light") {
+        state.theme = "dark";
+      } else state.theme = "light";
     },
   },
 });

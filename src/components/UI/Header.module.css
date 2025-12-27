@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--color-light);
+  background-color: var(--color-inverted-bg);
   padding: 2rem 0;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 h1 {
-  color: var(--color-dark);
+  color: var(--color-inverted-text);
 }
 
 .hamburger-menu {
@@ -36,8 +36,8 @@ ul::-webkit-scrollbar {
   flex-shrink: 0;
 
   padding: 0.5rem;
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   border-radius: 0.5rem;
   font-weight: 500;
 }
@@ -47,6 +47,5 @@ ul::-webkit-scrollbar {
 }
 
 .active {
-  box-shadow: 0px 0px 0px 2px var(--color-light) inset;
-  /* border: 2px solid var(--color-light); */
+  box-shadow: 0px 0px 0px 2px var(--color-text) inset;
 }

@@ -16,7 +16,7 @@ export default function Sidebar() {
 
   return (
     <aside className={`${classes.sidebar} ${isOpen ? classes.open : ""}`}>
-      <p className="text-regular color-light">Navigation:</p>
+      <p className="text-regular">Navigation:</p>
       <ul className={classes["sidebar-list"]}>
         {sidebarList.map((item) => (
           <li key={item.id} onClick={() => goToPage(item.path)}>
@@ -24,6 +24,12 @@ export default function Sidebar() {
           </li>
         ))}
       </ul>
+      <p className="text-regular">Theme:</p>
+      <input
+        className={classes["theme-switch"]}
+        type="checkbox"
+        onChange={() => dispatch(uiActions.toggleTheme())}
+      />
     </aside>
   );
 }
