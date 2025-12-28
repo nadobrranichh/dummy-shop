@@ -9,6 +9,10 @@
 .categories-container {
   background-color: var(--color-accent);
   min-height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
