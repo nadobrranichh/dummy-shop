@@ -1,0 +1,24 @@
+.error-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: #f75e5e;
+  container-type: inline-size;
+  width: 100%;
+
+  flex: 1;
+}
+
+.error-code {
+  font-size: clamp(1.5rem, 6cqi, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.error-text {
+  font-size: 1.1rem;
+  text-align: center;
+}

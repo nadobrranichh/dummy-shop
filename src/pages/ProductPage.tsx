@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from "../store/custom-hooks";
 import { cartActions } from "../store/cart-slice";
 import ArrowLeftLightImg from "../assets/arrow-left-light.svg";
 import ArrowLeftDarkImg from "../assets/arrow-left-dark.svg";
+import ErrorBlock from "../components/UI/ErrorBlock";
+import type { HttpError } from "../types/http";
 
 const ADD_TO_CART_COOLDOWN_MS = 2000;
 
@@ -21,9 +23,9 @@ export default function ProductPage() {
 
   const {
     data: product,
-    //for later
     isLoading,
-    // isError,
+    isError,
+    error,
   } = useQuery({
     queryKey: ["products", id],
     queryFn: () => fetchProduct(id!),
@@ -57,6 +59,8 @@ export default function ProductPage() {
         Loading the product...
       </p>
     );
+
+  if (isError) content = <ErrorBlock error={error as HttpError} />;
 
   if (product)
     content = (

@@ -4,12 +4,14 @@ import classes from "./ProductsList.module.css";
 import ErrorBlock from "./UI/ErrorBlock";
 import ProductItem from "./ProductItem";
 import { useAppSelector } from "../store/custom-hooks";
+import type { HttpError } from "../types/http";
 
 export default function ProductsList() {
   const {
     data: products,
     isPending,
     isError,
+    error,
   } = useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
@@ -30,8 +32,13 @@ export default function ProductsList() {
       ? products
       : [];
 
-  if (isError) return <ErrorBlock />;
-  if (isPending) return <p className="loading-text">Loading products...</p>;
+  if (isError) {
+    return <ErrorBlock error={error as HttpError} />;
+  }
+  if (isPending)
+    return (
+      <p className={`${classes.centered} loading-text`}>Loading products...</p>
+    );
   return (
     <ul className={classes["products-list"]}>
       {displayedProducts.map((product) => (
