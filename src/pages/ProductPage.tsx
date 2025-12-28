@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { Suspense, useEffect, useState } from "react";
-import { Await, Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { fetchProduct } from "../http/http";
 import classes from "./ProductPage.module.css";
 import RatingContainer from "../components/RatingContainer";
@@ -22,7 +22,7 @@ export default function ProductPage() {
   const {
     data: product,
     //for later
-    // isLoading,
+    isLoading,
     // isError,
   } = useQuery({
     queryKey: ["products", id],
@@ -49,45 +49,48 @@ export default function ProductPage() {
     if (!id) navigate("../");
   }, []);
 
+  let content;
+
+  if (isLoading)
+    content = (
+      <p className={`loading-text ${classes.centered}`}>
+        Loading the product...
+      </p>
+    );
+
+  if (product)
+    content = (
+      <div className={classes.container}>
+        <img src={product.image} className={classes["product-image"]} />
+        <h2 className="title">{product.title}</h2>
+        <RatingContainer ratingObj={product.rating || { rate: 0, count: 0 }} />
+        <p className="price-text">
+          {priceFormatter.format(product.price || 0)}
+        </p>
+        <button
+          className={classes["add-to-cart-btn"]}
+          onClick={handleAddToCart}
+          disabled={coolDown}
+        >
+          {coolDown ? "Added!" : "Add to Cart"}
+        </button>
+        {itemQuantity > 0 && (
+          <p className="text-small self-center">
+            Quantity in cart: {itemQuantity}
+          </p>
+        )}
+        <h2 className="title">Description:</h2>
+        <p className="text-small">{product.description}</p>
+      </div>
+    );
+
   return (
     <main>
       <Link to="/" className="navigation">
         <img src={theme === "light" ? ArrowLeftDarkImg : ArrowLeftLightImg} />
         <p className="text-regular">Go back</p>
       </Link>
-      <Suspense>
-        <Await resolve={product}>
-          {(resolvedProduct) => (
-            <div className={classes.container}>
-              <img
-                src={resolvedProduct?.image}
-                className={classes["product-image"]}
-              />
-              <h2 className="title">{resolvedProduct?.title}</h2>
-              <RatingContainer
-                ratingObj={resolvedProduct?.rating || { rate: 0, count: 0 }}
-              />
-              <p className="price-text">
-                {priceFormatter.format(resolvedProduct?.price || 0)}
-              </p>
-              <button
-                className={classes["add-to-cart-btn"]}
-                onClick={handleAddToCart}
-                disabled={coolDown}
-              >
-                {coolDown ? "Added!" : "Add to Cart"}
-              </button>
-              {itemQuantity > 0 && (
-                <p className="text-small self-center">
-                  Quantity in cart: {itemQuantity}
-                </p>
-              )}
-              <h2 className="title">Description:</h2>
-              <p className="text-small">{resolvedProduct?.description}</p>
-            </div>
-          )}
-        </Await>
-      </Suspense>
+      {content}
     </main>
   );
 }
