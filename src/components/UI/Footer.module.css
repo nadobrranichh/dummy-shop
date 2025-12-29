@@ -1,0 +1,32 @@
+footer {
+  width: 100%;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 2rem;
+  background-color: var(--color-inverted-bg);
+  color: var(--color-inverted-text);
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+}
+
+.footer-container div {
+  flex: 1;
+}
+
+.footer-links-list {
+  padding-top: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.footer-links-list li a {
+  color: var(--color-inverted-text);
+}
