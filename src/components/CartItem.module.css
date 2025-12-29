@@ -1,36 +1,46 @@
 .cart-item {
-  width: 85%;
+  width: 80%;
+  max-width: 700px;
+  height: 130px;
   border: 2px solid var(--color-text);
+
   display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 0 1rem;
 }
 
 .item-image {
-  margin: 1rem;
-  width: 20vw;
-  height: 20vw;
+  height: 80%;
+  aspect-ratio: 1 / 1;
   object-fit: scale-down;
 }
 
 .item-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* by default for an item in flexbox - min-width: auto*/
+  /* which makes it stretch to its contents' width */
+  /* min-width: 0 allows it to be smaller that its contents*/
+  min-width: 0;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem 0 0 1rem;
+}
+
+.mt {
+  margin-top: 0.5rem;
 }
 
 .quantity-container {
-  padding-bottom: 1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   height: 2rem;
-}
-
-.self-start {
-  align-self: start;
+  width: 100%;
 }
 
 .quantity-icon {
-  width: 1.2rem;
+  height: 60%;
 }
