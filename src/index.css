@@ -141,7 +141,7 @@ input.theme-switch {
 }
 
 input.theme-switch::after {
-  content: "☀";
+  content: "☀️";
   font-size: 0.85rem;
   position: absolute;
   top: 50%;
@@ -150,15 +150,15 @@ input.theme-switch::after {
   height: 1.2rem;
   width: 1.2rem;
   background-color: var(--color-bg);
-  color: var(--color-text);
   border-radius: 50%;
   transition: left 0.3s;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 input.theme-switch:checked::after {
-  content: "⏾";
+  content: "🌙";
   left: 70%;
 }
