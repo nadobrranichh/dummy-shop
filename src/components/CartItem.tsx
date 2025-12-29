@@ -7,8 +7,6 @@ import PlusDarkIcon from "../assets/plus-dark.svg";
 import MinusLightIcon from "../assets/minus-light.svg";
 import MinusDarkIcon from "../assets/minus-dark.svg";
 
-const MAX_TITLE_LENGTH = 25;
-
 export default function CartItem({
   item,
   ...props
@@ -16,10 +14,7 @@ export default function CartItem({
   item: { quantity: number; product: Product };
 }) {
   const dispatch = useAppDispatch();
-  const displayTitle =
-    item.product.title.length > MAX_TITLE_LENGTH
-      ? item.product.title.slice(0, MAX_TITLE_LENGTH - 3).trim() + "..."
-      : item.product.title;
+
   const theme = useAppSelector((state) => state.ui.theme);
 
   const increaseQuantity = function () {
@@ -33,10 +28,8 @@ export default function CartItem({
     <li {...props} className={classes["cart-item"]}>
       <img src={item.product.image} className={classes["item-image"]} />
       <div className={classes["item-info"]}>
-        <p className={`text-regular ${classes["self-start"]}`}>
-          {displayTitle}
-        </p>
-        <p className="text-small">Quantity:</p>
+        <p className="text-regular">{item.product.title.trim()}</p>
+        <p className={`text-small text-center ${classes.mt}`}>Quantity:</p>
         <div className={classes["quantity-container"]}>
           <img
             src={theme === "light" ? MinusDarkIcon : MinusLightIcon}

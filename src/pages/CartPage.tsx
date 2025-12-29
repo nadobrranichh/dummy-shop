@@ -9,7 +9,7 @@ export default function CartPage() {
   const navigate = useNavigate();
   const cart = useAppSelector((state) => state.cart);
   const theme = useAppSelector((state) => state.ui.theme);
-  const total = cart
+  const subtotal = cart
     .reduce((total, item) => (total += item.product.price * item.quantity), 0)
     .toFixed(2);
   return (
@@ -36,7 +36,7 @@ export default function CartPage() {
             ))}
           </ul>
           <div className={classes.center}>
-            <p className="text-regular text-center">Your total is: {total}</p>
+            <p className="text-regular text-center">Subtotal: {subtotal}</p>
             <button className={classes.btn}>Proceed to checkout</button>
           </div>
         </>
