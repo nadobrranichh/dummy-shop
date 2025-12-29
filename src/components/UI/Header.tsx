@@ -74,6 +74,15 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <div className={classes["theme-switch-container"]}>
+              <p className="text-regular">theme:</p>
+              <input
+                className="theme-switch"
+                type="checkbox"
+                onChange={() => dispatch(uiActions.toggleTheme())}
+                checked={theme === "dark"}
+              />
+            </div>
           </>
         ) : (
           <>

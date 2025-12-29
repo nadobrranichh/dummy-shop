@@ -29,9 +29,10 @@ export default function Sidebar() {
       <div className={classes["theme-switch-container"]}>
         <p className="text-small">Switch themes:</p>
         <input
-          className={classes["theme-switch"]}
+          className="theme-switch"
           type="checkbox"
           onChange={() => dispatch(uiActions.toggleTheme())}
+          checked={theme === "dark"}
         />
       </div>
     </aside>
