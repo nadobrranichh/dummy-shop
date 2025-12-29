@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ErrorBlock from "./ErrorBlock";
 import classes from "./Header.module.css";
 import { useAppSelector, useAppDispatch } from "../../store/custom-hooks";
@@ -9,8 +9,10 @@ import HamburgerMenuLightImg from "../../assets/hamburger-menu-light.svg";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCategories } from "../../http/http";
 import type { HttpError } from "../../types/http";
-
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
+import { pagesList } from "../../lists/pagesList";
 export default function Header() {
+  const { isDesktop } = useWindowDimensions();
   const location = useLocation();
   const dispatch = useAppDispatch();
   const selectedCategories = useAppSelector(
@@ -62,12 +64,29 @@ export default function Header() {
   return (
     <header>
       <div className={classes.container}>
-        <h1>DummyShop</h1>
-        <img
-          src={theme === "dark" ? HamburgerMenuDarkImg : HamburgerMenuLightImg}
-          className={classes["hamburger-menu"]}
-          onClick={toggleSidebar}
-        />
+        {isDesktop ? (
+          <>
+            <h1>DummyShop</h1>
+            <ul className={classes["pages-links-list"]}>
+              {pagesList.map((page) => (
+                <li key={page.id}>
+                  <Link to={page.path}>{page.name.toUpperCase()}</Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <h1>DummyShop</h1>
+            <img
+              src={
+                theme === "dark" ? HamburgerMenuDarkImg : HamburgerMenuLightImg
+              }
+              className={classes["hamburger-menu"]}
+              onClick={toggleSidebar}
+            />
+          </>
+        )}
       </div>
       {location.pathname === "/cart" || (
         <div className={classes["categories-container"]}>{content}</div>

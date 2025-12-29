@@ -1,9 +1,31 @@
+@import "../../index.css";
+
 .container {
   background-color: var(--color-inverted-bg);
   padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+@media (--desktop) {
+  .container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.pages-links-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.pages-links-list li a {
+  color: var(--color-inverted-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.3rem;
 }
 
 .categories-container {

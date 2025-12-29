@@ -1,4 +1,4 @@
-export const sidebarList: { id: number; path: string; name: string }[] = [
+export const pagesList: { id: number; path: string; name: string }[] = [
   {
     id: 1,
     path: "/",
