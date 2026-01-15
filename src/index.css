@@ -14,6 +14,11 @@ body {
 
   --color-inverted-bg: var(--color-dark);
   --color-inverted-text: var(--color-light);
+
+  --max-products-columns: 7;
+  --min-column-width: 180px;
+
+  --color-hover-item: #7b74eb;
 }
 
 body.dark {
@@ -22,6 +27,8 @@ body.dark {
 
   --color-inverted-bg: var(--color-light);
   --color-inverted-text: var(--color-dark);
+
+  --color-hover-item: #100c56;
 }
 
 * {

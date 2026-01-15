@@ -1,8 +1,13 @@
 .products-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  padding: 0 0.5rem;
-  gap: 0.5rem;
+  gap: 0.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-column-width), 1fr));
+
+  /* sets max width to be (--max-products-columns) columns width gaps between them */
+  max-width: calc(
+    var(--max-products-columns) * var(--min-column-width) +
+      (var(--max-products-columns) - 1) * 0.5rem
+  );
 }
 
 .centered {
@@ -10,4 +15,19 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.paragraph {
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding: 0.6rem 0.5rem;
+}
+
+.center {
+  margin: auto;
+  width: 100%;
+  max-width: calc(
+    var(--max-products-columns) * var(--min-column-width) +
+      (var(--max-products-columns) - 1) * 0.5rem
+  );
 }

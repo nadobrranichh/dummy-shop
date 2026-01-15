@@ -40,10 +40,13 @@ export default function ProductsList() {
       <p className={`${classes.centered} loading-text`}>Loading products...</p>
     );
   return (
-    <ul className={classes["products-list"]}>
-      {displayedProducts.map((product) => (
-        <ProductItem product={product} key={product.id} />
-      ))}
-    </ul>
+    <div className={classes.center}>
+      <p className={classes.paragraph}>For you</p>
+      <ul className={classes["products-list"]}>
+        {displayedProducts.map((product) => (
+          <ProductItem product={product} key={product.id} />
+        ))}
+      </ul>
+    </div>
   );
 }
